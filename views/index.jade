@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p #{query}
+  table.playerTable
+    tr
+      td ID
+      td NAME
+      td AGE
+  tbody
+    -for(var i = 0; i<play.length;i++){
+      tr
+        td  #{play[i].PlayerID}
+        td  #{play[i].PlayerName}
+        td  #{play[i].Age}
+        -}
+  table.charTable
+    tr
+      td ID
+      td NAME
+      td CLASS
+      td LEVELS
+      td MAX HP
+      td CURRENT HP
+    tbody
+     -for(var i = 0; i<char.length;i++){
+      tr
+        td  #{char[i].CharacterID}
+        td  #{char[i].CharacterName}
+        td  #{char[i].Class}
+        td  #{char[i].Levels}
+        td  #{char[i].MaxHP}
+        td  #{char[i].CurrentHP}
+        -}
