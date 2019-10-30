@@ -3,35 +3,33 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  table.playerTable
+   table.charTable
     tr
-      td ID
-      td NAME
-      td AGE
-  tbody
-    -for(var i = 0; i<play.length;i++){
-      tr
-        td  #{play[i].PlayerID}
-        td  #{play[i].PlayerName}
-        td  #{play[i].Age}
-        -}
+      th ID
+      th NAME
+      th AGE
+    tbody
+      each row in play
+        tr
+          td #{row.PlayerID}
+          td #{row.PlayerName}
+          td #{row.Age}
       
   hr
   table.charTable
     tr
-      td ID
-      td NAME
-      td CLASS
-      td LEVELS
-      td MAX HP
-      td CURRENT HP
-  tbody
-     -for(var i = 0; i<char.length;i++){
-      tr
-        td  #{char[i].CharacterID}
-        td  #{char[i].CharacterName}
-        td  #{char[i].Class}
-        td  #{char[i].Levels}
-        td  #{char[i].MaxHP}
-        td  #{char[i].CurrentHP}
-        -}
+      th ID
+      th NAME
+      th CLASS
+      th LEVELS
+      th MAX HP
+      th CURRENT HP
+    tbody
+      each row in char
+        tr
+          td #{row.CharacterID}
+          td #{row.CharacterName}
+          td #{row.Class}
+          td #{row.Levels}
+          td #{row.MaxHP}
+          td #{row.CurrentHP}
