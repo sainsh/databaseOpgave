@@ -1,0 +1,32 @@
+[
+    {
+        "PlayerID": 0,
+        "PlayerName": "Katharina",
+        "Age": 27
+    },
+    {
+        "PlayerID": 0,
+        "PlayerName": "HP",
+        "Age": 28
+    },
+    {
+        "PlayerID": 0,
+        "PlayerName": "Lasse",
+        "Age": 26
+    },
+    {
+        "PlayerID": 0,
+        "PlayerName": "Marucs",
+        "Age": 24
+    },
+    {
+        "PlayerID": 0,
+        "PlayerName": "Stoffer",
+        "Age": 26
+    },
+    {
+        "PlayerID": 0,
+        "PlayerName": "Gede",
+        "Age": 27
+    }
+]

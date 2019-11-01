@@ -3,33 +3,4 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-   table.charTable
-    tr
-      th ID
-      th NAME
-      th AGE
-    tbody
-      each row in play
-        tr
-          td #{row.PlayerID}
-          td #{row.PlayerName}
-          td #{row.Age}
-      
-  hr
-  table.charTable
-    tr
-      th ID
-      th NAME
-      th CLASS
-      th LEVELS
-      th MAX HP
-      th CURRENT HP
-    tbody
-      each row in char
-        tr
-          td #{row.CharacterID}
-          td #{row.CharacterName}
-          td #{row.Class}
-          td #{row.Levels}
-          td #{row.MaxHP}
-          td #{row.CurrentHP}
+  a(href="./rpg") rpg database

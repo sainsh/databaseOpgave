@@ -1,0 +1,57 @@
+[
+    {
+        "CharacterID" : 0,
+        "CharacterName": "x",
+        "Class" : "Paladin",
+        "Levels": "2",
+        "MaxHP" : 22,
+        "CurrentHP": 22,
+        "PlayerID": 1
+    },
+    {
+        "CharacterID" : 0,
+        "CharacterName": "Shiro",
+        "Class" : "Gunslinger",
+        "Levels": "2",
+        "MaxHP" : 15,
+        "CurrentHP": 15,
+        "PlayerID": 2
+    } ,
+    {
+        "CharacterID" : 0,
+        "CharacterName": "Alred Aelee",
+        "Class" : "Dread",
+        "Levels": "2",
+        "MaxHP" : 15,
+        "CurrentHP": 15,
+        "PlayerID": 3
+    } ,
+    {
+        "CharacterID" : 0,
+        "CharacterName": "x",
+        "Class" : "Oracle",
+        "Levels": "2",
+        "MaxHP" : 11,
+        "CurrentHP": 11,
+        "PlayerID": 4
+    } ,
+    {
+        "CharacterID" : 0,
+        "CharacterName": "x",
+        "Class" : "Witch",
+        "Levels": "2",
+        "MaxHP" : 14,
+        "CurrentHP": 14,
+        "PlayerID": 5
+    } ,
+    {
+        "CharacterID" : 0,
+        "CharacterName": "Ugly Squob",
+        "Class" : "Alchemist",
+        "Levels": "2",
+        "MaxHP" : 20,
+        "CurrentHP": 20,
+        "PlayerID": 6
+    }  
+
+]

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+
+  button(onclick='createTables()') Create Tables
+  button(onclick='insertDummyData()') Insert Data
+  button(onclick='showData()') Show Data 
+
+  #playerTable
+
+  #characterTable  
+
+
+  script(src="javascripts/databaseInitializer.js")
