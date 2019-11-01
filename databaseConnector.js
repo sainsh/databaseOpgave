@@ -93,7 +93,7 @@ exports.insertData = dbInfo => {
             var Sql = `INSERT INTO ${dbInfo.tables[i].tableName} set ?`
 
 
-            con.query(Sql, [file], function (err, result) {
+            con.query(Sql, [file], function (err, result) { //[file] is [object Object]
                 if (err) throw new Error(err)
                 console.log(`Inserted ${result.affectedRows}`);
             })
