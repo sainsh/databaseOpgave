@@ -6,3 +6,33 @@ body {
 a {
   color: #00B7FF;
 }
+.row{
+  display: flex;
+}
+
+.row:nth-child(even) .row-content{
+  background-color: red;
+
+}
+.row:nth-child(odd) .row-content{
+  background-color: grey;
+
+}
+
+.row-title{
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
+  width: 10rem;
+  border-color: white;
+  border-width: 0.05rem;
+  border-style: solid;
+  text-align: center;
+}
+
+.row-content{
+  padding: 0.55rem;
+  text-align: center;
+  width: 10rem;
+
+}

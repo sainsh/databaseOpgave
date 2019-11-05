@@ -4,3 +4,15 @@ block content
   h1= title
   p Welcome to #{title}
   a(href="./rpg") rpg database
+  h3 This page also includes an API which can be accessed via /api/rpg/(players/ or characters/) '
+  p to access players use /players/, here you can get all players with a get request to api/players/
+  p to create a player use a post request to api/players with a JSON object like this: {"PlayerID": 7,"PlayerName": "Thomas","Age": 26 }, the PlayerID field will be overwritten by an AUTO_INCREMENT value
+  p to update a player use a put request to api/players with an id as a path variable and a JSON object like above, it replaces all fields in the player, so you need to send data for all fields
+  p to delete a player use a delete request to api/players with an id as a path vairable
+  p to access a single player use a get request to api/players with an id as a path variable
+  hr
+  p to access characters use /characters/, here you can get all characters with a get request to api/characters/
+  p to create a character use a post request to api/character with a JSON object like this: {"CharacterID": 7,"CharacterName": "Lester","Class": "Fighter","Levels": "5","MaxHP": 288,"CurrentHP": 288,"PlayerID": 7}, the CharacterID field will be overwritten by an AUTO_INCREMENT value
+  p to update a character use a put request to api/character with an id as a path variable and a JSON object like above, it replaces all fields in the character, so you need to send data for all fields
+  p to delete a character use a delete request to api/characters with an id as a path vairable
+  p to access a single character use a get request to api/characters with an id as a path variable

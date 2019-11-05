@@ -60,11 +60,8 @@ exports.createTables = dbInfo => {
         createSQL += `);`
 
     }
-    console.log("drop: " + dropSQL)
-    console.log("create: " + createSQL)
     con.query(dropSQL + createSQL, function (err, res, field) {
         if (err) throw new Error(err)
-        console.log(res)
     })
 
 
@@ -86,18 +83,17 @@ exports.insertData = dbInfo => {
     })
 
     try {
+
         for (var i = 0; i < dbInfo.tables.length; i++) {
             var file = JSON.parse(fs.readFileSync(`./public/json/${dbInfo.tables[i].tableName}.json`))
+            for (var j = 0; j < file.length; j++) {
 
+                var sql = `INSERT INTO ${dbInfo.tables[i].tableName} set ?;`
 
-            var Sql = `INSERT INTO ${dbInfo.tables[i].tableName} set ?`
-
-
-            con.query(Sql, [file], function (err, result) { //[file] is [object Object]
-                if (err) throw new Error(err)
-                console.log(`Inserted ${result.affectedRows}`);
-            })
-
+                con.query(sql, file[j], function (err, result) { //[file] is [object Object]
+                    if (err) throw new Error(err)
+                })
+            }
         }
     } catch (error) {
         console.error(error)
@@ -106,38 +102,64 @@ exports.insertData = dbInfo => {
     con.end()
 }
 
-exports.showData = fn => {
+exports.showPlayers = fn => {
     var con = mysql.createConnection({
-        host: 'localhost',
+        host: "localhost",
         user: 'admin',
-        password: 'admin',
-        database: 'rpgdb',
+        password: "admin",
+        database: "rpgdb",
+        charset: "utf8mb4",
         multipleStatements: true
-    })
+    });
 
     con.connect(function (err) {
-        if (err) throw err
-        console.log("connected")
-    })
+        if (err) throw err;
+        console.log("Connected to Database: rpgdb");
+    });
 
+    var resultJSON = { titles: [], objects: [] };
 
-    var resultJson = { tables: [{ players: [] }, { characters: [] }] }
-    var sql = "SELECT * FROM players"
-    con.query(sql, function (err, result) {
-        if (err) throw err
-        resultJson.tables.push(result)
+    var query = "SHOW columns FROM players;";
+    query += "SELECT * FROM players;";
+    con.query(query, function (err, result) {
+        if (err) throw err;
+        for (i = 0; i < result[0].length; i++) {
+            resultJSON.titles.push(result[0][i].Field);
+        }
+        resultJSON.objects = result[1];
+        con.end();
+        fn(resultJSON);
+    });
 
-        sql = "SELECT * FROM characters"
+}
 
-        con.query(sql, function (err, result) {
-            if (err) throw err
-            resultJson.tables.push(result)
-            con.end()
-            fn(resultJson)
-        })
-    })
+exports.showCharacters = fn => {
+    var con = mysql.createConnection({
+        host: "localhost",
+        user: 'admin',
+        password: "admin",
+        database: "rpgdb",
+        charset: "utf8mb4",
+        multipleStatements: true
+    });
 
+    con.connect(function (err) {
+        if (err) throw err;
+        console.log("Connected to Database: rpgdb");
+    });
 
+    var resultJSON = { titles: [], objects: [] };
 
+    var query = "SHOW columns FROM characters;";
+    query += "SELECT * FROM characters;";
+    con.query(query, function (err, result) {
+        if (err) throw err;
+        for (i = 0; i < result[0].length; i++) {
+            resultJSON.titles.push(result[0][i].Field);
+        }
+        resultJSON.objects = result[1];
+        con.end();
+        fn(resultJSON);
+    });
 
 }

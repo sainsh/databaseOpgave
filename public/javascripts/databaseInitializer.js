@@ -19,12 +19,24 @@ var insertDummyData = function(){
     req.send();
 }
 
-var showData = () =>{
+var showPlayers = () =>{
+    playerTable.innerHTML =""
     var req = new XMLHttpRequest();
-    req.open('GET', '/rpg/showData');
+    req.open('GET', '/rpg/showPlayers');
     req.onload = () =>{
         console.log('responsetext: ' + req.responseText);
-        tableContainer.insertAdjacentHTML('beforeend', req.responseText);
+        playerTable.insertAdjacentHTML('beforeend', req.responseText);
+    }
+    req.send();
+}
+
+var showCharacters = () =>{
+    characterTable.innerHTML=""
+    var req = new XMLHttpRequest();
+    req.open('GET', '/rpg/showCharacters');
+    req.onload = () =>{
+        console.log('responsetext: ' + req.responseText);
+        characterTable.insertAdjacentHTML('beforeend', req.responseText);
     }
     req.send();
 }
